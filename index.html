@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Motivational Video Maker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <h1 class="sr-only">Motivational Video Maker</h1>
+
+    <section class="editor">
+      <h2>Text Scenes</h2>
+      <form id="textsForm" class="texts-form">
+        <label>1 <input name="line0" value="Dream big." /></label>
+        <label>2 <input name="line1" value="Never give up." /></label>
+        <label>3 <input name="line2" value="Work hard every day." /></label>
+        <label>4 <input name="line3" value="Your time will come." /></label>
+        <div class="form-actions">
+          <button id="applyTextBtn" type="button" class="btn small">Apply & Preview</button>
+        </div>
+      </form>
+
+      <h2>Background Music</h2>
+      <div class="music-controls">
+        <label>Style
+          <select id="musicSelect">
+            <option value="none">None</option>
+            <option value="calm">Calm Pad (ambient)</option>
+            <option value="uplift">Uplifting Arp</option>
+          </select>
+        </label>
+        <label>Volume <input id="musicVolume" type="range" min="0" max="1" step="0.01" value="0.45" /></label>
+        <div class="music-buttons">
+          <button id="musicPlay" class="btn small">Play Music</button>
+          <button id="musicStop" class="btn small">Stop Music</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="player">
+      <div class="canvas-wrap" id="canvasWrap">
+        <canvas id="stage"></canvas>
+        <div class="vignette"></div>
+        <div class="cinematic-bars top"></div>
+        <div class="cinematic-bars bottom"></div>
+      </div>
+
+      <div class="controls">
+        <div class="left-controls">
+          <button id="playBtn" class="btn primary">Play</button>
+          <button id="pauseBtn" class="btn" disabled>Pause</button>
+          <button id="restartBtn" class="btn">Restart</button>
+        </div>
+
+        <div class="right-controls">
+          <button id="downloadBtn" class="btn secondary">Download Video</button>
+        </div>
+      </div>
+
+      <div id="status" class="status">Duration: 20s • Resolution: responsive</div>
+      <div id="progressContainer" class="progress-container" aria-hidden="true">
+        <div id="progressBar" class="progress-bar"></div>
+      </div>
+    </section>
+
+    <footer class="credits">
+      Built with HTML/CSS/JS • Exports WebM using MediaRecorder • Best in Chrome/Edge/Firefox
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
