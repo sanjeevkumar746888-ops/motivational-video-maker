@@ -1,0 +1,56 @@
+/* style.css - Motivational Video Maker */
+:root{
+  --bg:#071026;
+  --accent:#ffaf4d;
+  --muted:rgba(255,255,255,0.14);
+  --glass: rgba(255,255,255,0.04);
+  --text:#fff;
+  --control-height:48px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,#05050a 0%, #071026 50%, #071226 100%);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+}
+.sr-only{position:absolute;height:1px;width:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.app{width:100%;max-width:1100px}
+/* layout */
+.editor, .player{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:12px;margin-bottom:12px;box-shadow:0 8px 30px rgba(2,6,23,0.45)}
+.editor{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start}
+.texts-form{display:flex;flex-direction:column;gap:8px;min-width:220px}
+.texts-form label{display:flex;gap:8px;align-items:center;background:rgba(255,255,255,0.02);padding:8px;border-radius:8px}
+.texts-form input{flex:1;background:transparent;border:none;color:var(--text);font-weight:600;padding:6px}
+.texts-form input:focus{outline:2px solid rgba(255,255,255,0.06);}
+.form-actions{display:flex;justify-content:flex-end}
+.music-controls{display:flex;flex-direction:column;gap:8px;min-width:220px}
+.music-controls label{display:flex;align-items:center;gap:8px}
+.music-buttons{display:flex;gap:8px}
+/* player */
+.canvas-wrap{position:relative;width:100%;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:linear-gradient(180deg,#ffd7a0 0%, #ffb66b 40%, #ff8f5c 100%);box-shadow:inset 0 -30px 60px rgba(0,0,0,0.25)}
+canvas{width:100%;height:100%;display:block}
+.vignette{pointer-events:none;position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(0,0,0,0) 30%, rgba(0,0,0,0.22) 70%, rgba(0,0,0,0.6) 100%);mix-blend-mode:multiply}
+.cinematic-bars{position:absolute;left:0;right:0;height:8%;background:#000;z-index:40;opacity:0.96}
+.cinematic-bars.top{top:0}
+.cinematic-bars.bottom{bottom:0}
+.controls{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-top:10px}
+.left-controls,.right-controls{display:flex;gap:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-width:92px;height:var(--control-height);padding:0 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:var(--glass);color:var(--text);cursor:pointer;font-weight:600;letter-spacing:0.3px;transition:transform .12s ease, box-shadow .12s ease;box-shadow:0 4px 12px rgba(2,6,23,0.35)}
+.btn:active{transform:translateY(1px)}
+.primary{background:linear-gradient(90deg,var(--accent), #ff6f4d);color:#081020;border:none}
+.secondary{background:linear-gradient(90deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))}
+.small{min-width:86px;height:36px;font-size:14px}
+.status{font-size:13px;color:rgba(255,255,255,0.75);padding-top:6px}
+.progress-container{width:100%;height:8px;background:rgba(255,255,255,0.04);border-radius:999px;overflow:hidden;margin-top:8px}
+.progress-bar{height:100%;width:0%;background:linear-gradient(90deg,#ffd07a,#ff8f5c);transition:width 0.1s linear}
+.credits{font-size:13px;color:rgba(255,255,255,0.5);text-align:center}
+@media(max-width:800px){.editor{flex-direction:column}.texts-form{width:100%}.music-controls{width:100%}.controls{flex-direction:column;align-items:flex-start}.left-controls,.right-controls{width:100%;justify-content:flex-start}}
